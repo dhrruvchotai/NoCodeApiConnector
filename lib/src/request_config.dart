@@ -1,6 +1,8 @@
 //This is the class that contains configuration of the individual requests.
 
 //all the datatype is combined into one
+import 'dart:convert';
+
 enum HttpMethod{
   get,
   post,
@@ -16,7 +18,7 @@ class RequestConfig{
   //query parameters
   final Map<String,dynamic>? queryParams;
   //only the specific headers for this request
-  final Map<String,String> headers;
+  final Map<String,String>? headers;
 
   //request body
   final dynamic body;
@@ -30,6 +32,48 @@ class RequestConfig{
     this.headers,
     this.body,
     this.useAuth = true
-})
+  });
 
+  static methodFromString(String method){
+    switch(method.toLowerCase()){
+      case 'get' : return HttpMethod.get;
+      case 'post' : return HttpMethod.post;
+      case 'put' : return HttpMethod.put;
+      case 'patch' : return HttpMethod.patch;
+      case 'delete' : return HttpMethod.delete;
+      default : throw ArgumentError('Invalid Http Method : $method');
+    }
+  }
+
+  //Set all the values from the given data
+  factory RequestConfig.fromJson(Map<String,dynamic> jsonData){
+    return RequestConfig(
+        method: methodFromString(jsonData['method']),
+        path: jsonData['path'],
+        queryParams: jsonData['queryParams'],
+        headers: jsonData['headers'] != null ? Map<String,String>.from(jsonData['headers']) : null,
+        body: jsonData['body'],
+        useAuth: jsonData['useAuth'] ?? true,
+    );
+  }
+
+  Map<String,dynamic> toJson(){
+    //return the result in the json format
+   final result = <String,dynamic>{
+     'method' : method.toString().split('.').last,
+     'path' : path,
+     'useAuth' : useAuth,
+   };
+   //add headers,queryParams and body to result if not null
+   if(queryParams != null){
+     result['queryParams'] = queryParams;
+   }
+   if(headers != null){
+     result['headers'] = headers;
+   }
+   if(body != null){
+     result['body'] = body;
+   }
+   return result;
+  }
 }
