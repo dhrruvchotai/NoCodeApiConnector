@@ -112,6 +112,12 @@ You can find more advanced examples in the [`/example`](./example) directory.
 ```text
 lib/
 ├── no_code_api_connector.dart
+src/
+├── api_connector.dart
+├── api_config.dart
+├── auth_provider.dart
+├── request_config.dart
+├── response_handler.dart
 example/
 ├── main.dart
 ```
