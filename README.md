@@ -1,9 +1,6 @@
-Here’s a complete `README.md` for your Flutter package **`no_code_api_connector`**, written in a single file:
 
----
 
-````markdown
-# 📦 no_code_api_connector
+````markdown 📦 no_code_api_connector
 
 `no_code_api_connector` is a Flutter package that allows you to connect to REST APIs using a simple JSON-based configuration — no backend or manual HTTP logic needed. Perfect for developers who want to set up dynamic API integrations quickly and efficiently with minimal boilerplate.
 
