@@ -1,6 +1,6 @@
 import 'auth_provider.dart';
 
-//This is the class that contains all the api information and methods for handling the data.
+//General Info for all the api - This is the class that contains all the api information and methods for handling the data.
 class ApiConfig{
 
   //Base url of the api
@@ -15,6 +15,7 @@ class ApiConfig{
   //time out duration for the requests
   final Duration timeout;
 
+  //Constructor
   ApiConfig({
     required this.baseUrl,
     this.defaultHeaders,
@@ -23,6 +24,7 @@ class ApiConfig{
     this.timeout = const Duration(seconds: 60),
   });
 
+  //set the data from Json Provided Data
   factory ApiConfig.fromJson(Map<String,dynamic> jsonData){
     AuthProvider? auth;
     
@@ -56,7 +58,7 @@ class ApiConfig{
         timeout: jsonData['timeout'] != null ? Duration(milliseconds: jsonData['timeout']) : const Duration(seconds: 60),
     );
   }
-
+  //Convert data into json format
   Map<String,dynamic> toJson() {
     final result = <String,dynamic> {
       'baseUrl' : baseUrl,
@@ -72,4 +74,6 @@ class ApiConfig{
     }
     return result;
   }
+
+
 }

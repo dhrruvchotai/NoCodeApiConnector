@@ -2,6 +2,7 @@
 //implemented according to the auth type
 import 'dart:convert';
 
+//abstract class to generalize all type of auth providers (basic,key-value(auth-api),and bearer)
 abstract class AuthProvider{
   //If we want to send the auth details in headers
   Map<String,String> applyToHeaders(Map<String,String> headers);
@@ -11,7 +12,8 @@ abstract class AuthProvider{
   Map<String,dynamic> toJson();
 }
 
-//If the auth is type of api key
+
+//sub class of auth provider If the auth is type of api key
 class ApiKeyAuthProvider implements AuthProvider{
   //api key name
   final String key;
@@ -20,12 +22,14 @@ class ApiKeyAuthProvider implements AuthProvider{
   //send this api key in headers or query parameters
   final bool inHeader;
 
+  //constructor
   ApiKeyAuthProvider({
     required this.key,
     required this.value,
     this.inHeader = true,
   });
 
+  //function to apply api key in headers
   @override
   Map<String,String> applyToHeaders(Map<String,String> headers){
     if(inHeader){
@@ -34,6 +38,7 @@ class ApiKeyAuthProvider implements AuthProvider{
     return headers;
   }
 
+  //function to apply api in query params
   @override
   Map<String,dynamic> applyToQueryParams(Map<String,dynamic> params){
     if(!inHeader){
@@ -42,7 +47,7 @@ class ApiKeyAuthProvider implements AuthProvider{
     return params;
   }
 
-  //For returning the data in json format
+  //function For returning the data in json format
   @override
   Map<String,dynamic> toJson(){
     return {
@@ -54,17 +59,20 @@ class ApiKeyAuthProvider implements AuthProvider{
   }
 }
 
-//If the auth is type of basic means only username and password is used
+//sub class of auth provider If the auth is type of basic means only username and password is used
 class BasicAuthProvider implements AuthProvider{
+  //used for auth username and pass
   final String username;
   final String password;
 
+  //constructor
   BasicAuthProvider({
     required this.username,
     required this.password
   });
 
   //Basic auth is only applied to auth never in query params so here it is
+  //function to apply basic auth in headers
   @override
   Map<String,String> applyToHeaders(Map<String,String> headers){
     //first we have to convert username pass to string and the utf-8 bytes and convert that bytes in to base64 format
@@ -76,11 +84,13 @@ class BasicAuthProvider implements AuthProvider{
     };
   }
 
+  //basic auth generally not applied to query params so return as it is
   @override
   Map<String,dynamic> applyToQueryParams(Map<String,dynamic> params){
     return params;
   }
 
+  //function to convert data in json format
   @override
   Map<String,dynamic> toJson(){
     return {
@@ -91,13 +101,16 @@ class BasicAuthProvider implements AuthProvider{
   }
 }
 
-//for the api requests with requires bearer as auth
+//sub class of auth provider for the api requests with requires bearer as auth
 //this bearer auth method also do not apply to query parameters always sent with the headers
 class BearerAuthProvider implements AuthProvider{
+  //token required for the bearer type auth
   final String token;
 
+  //constructor
   BearerAuthProvider({ required this.token});
 
+  //function to apply bearer auth to headers
   @override
   Map<String,String> applyToHeaders(Map<String,String> headers){
     return {
@@ -107,11 +120,14 @@ class BearerAuthProvider implements AuthProvider{
     };
   }
 
+  //also bearer auth is generally not applied to query params
+  //so return query params as it is
   @override
   Map<String,dynamic> applyToQueryParams(Map<String,dynamic> params){
     return params;
   }
 
+  //function to convert the data to json
   @override
   Map<String,dynamic> toJson(){
     return{

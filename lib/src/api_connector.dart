@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:no_code_api_connector/no_code_api_connector.dart';
 import 'package:http/http.dart' as http;
 
+//This class is for connecting to api request,sending requests
 class ApiConnector{
+
   final ApiConfig config;
   final http.Client client;
 
@@ -20,6 +22,7 @@ class ApiConnector{
     final uri = _buildUri(requestConfig);
     final headers = _buildHeaders(requestConfig);
 
+    print("Url is : ${uri}");
     try{
       http.Response response;
       switch(requestConfig.method){
@@ -45,11 +48,15 @@ class ApiConnector{
       throw Exception('API request failed : $e');
     }
   }
-  //method for building url according to the query params
+  //function for building url according to the query params
   Uri _buildUri(RequestConfig requestConfig){
     final url = Uri.parse('${config.baseUrl}${requestConfig.path}');
 
     Map<String,dynamic> queryParams = requestConfig.queryParams ?? {};
+
+    if (queryParams == null || queryParams.isEmpty) {
+      return url;
+    }
 
     if(requestConfig.useAuth && config.authProvider != null){
       queryParams = config.authProvider!.applyToQueryParams(queryParams);
@@ -61,7 +68,7 @@ class ApiConnector{
 
     return url.replace(queryParameters: stringQueryParams);
   }
-  //method for building headers according to content type and the auth
+  //function for building headers according to content type and the auth
   Map<String,String> _buildHeaders(RequestConfig requestConfig) {
     Map<String, String> headers = Map.from(config.defaultHeaders ?? {});
 
@@ -79,7 +86,7 @@ class ApiConnector{
 
     return headers;
   }
-  //method for encoding body according to headers
+  //function for encoding body according to headers
   dynamic _encodeBody(RequestConfig requestConfig, Map<String,String> headers){
     if(requestConfig.body == null){
       return null;
@@ -91,7 +98,7 @@ class ApiConnector{
     }
     return requestConfig.body;
   }
-  //method for handling http response
+  //function for handling http response
   dynamic _handleResponse(http.Response response){
     if(response.statusCode >= 200 && response.statusCode <= 300){
       if(response.body.isEmpty){
@@ -104,8 +111,9 @@ class ApiConnector{
       throw HttpException("Request failed with status code : ${response.statusCode}",uri: response.request?.url);
     }
   }
-  //method to dispose the used resources
+  //function to dispose the used resources
   void dispose() {
     client.close();
   }
+
 }

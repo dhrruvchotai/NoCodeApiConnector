@@ -1,8 +1,7 @@
 //This is the class that contains configuration of the individual requests.
-
-//all the datatype is combined into one
 import 'dart:convert';
 
+//general data type for all http methods
 enum HttpMethod{
   get,
   post,
@@ -10,6 +9,7 @@ enum HttpMethod{
   patch,
   delete
 }
+
 class RequestConfig{
   //Type of http method
   final HttpMethod method;
@@ -25,6 +25,7 @@ class RequestConfig{
   //select whether to use auth for this request or not
   final bool useAuth;
 
+  //constructor
   RequestConfig({
     required this.method,
     required this.path,
@@ -34,6 +35,7 @@ class RequestConfig{
     this.useAuth = true
   });
 
+  //get the http method from string representation
   static methodFromString(String method){
     switch(method.toLowerCase()){
       case 'get' : return HttpMethod.get;
@@ -45,7 +47,7 @@ class RequestConfig{
     }
   }
 
-  //Set all the values from the given data
+  //Set all the values from the given data and set the values to variables
   factory RequestConfig.fromJson(Map<String,dynamic> jsonData){
     return RequestConfig(
         method: methodFromString(jsonData['method']),
@@ -57,6 +59,7 @@ class RequestConfig{
     );
   }
 
+  //function to convert the data in json format
   Map<String,dynamic> toJson(){
     //return the result in the json format
    final result = <String,dynamic>{

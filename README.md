@@ -49,59 +49,36 @@ flutter pub get
 import 'package:no_code_api_connector/no_code_api_connector.dart';
 ```
 
-### Step 2: Create a JSON config
+### Step 2: Create instance of ApiConfig and set parameters tha you want to include in all api requests
 
 ```dart
-final config = {
-  "baseUrl": "https://jsonplaceholder.typicode.com",
-  "headers": {
-    "Content-Type": "application/json"
-  },
-  "endpoints": {
-    "getPosts": {
-      "path": "/posts",
-      "method": "GET"
-    },
-    "createPost": {
-      "path": "/posts",
-      "method": "POST",
-      "body": {
-        "title": "{{title}}",
-        "body": "{{body}}",
-        "userId": "{{userId}}"
-      }
-    }
-  }
-};
+    final apiConfig = ApiConfig(baseUrl: 'https://api.escuelajs.co/api/v1');
 ```
 
-### Step 3: Initialize the connector
+### Step 3: Create Instance of ApiConnector by passing instance of ApiConfig
 
 ```dart
-final connector = NoCodeApiConnector.fromJson(config);
+final connector = ApiConnector(apiConfig);
+```
+
+### Step 4: Create instance of RequestConfig and set necessary parameters like method and endpoint(path)
+
+```dart
+//Get Method
+final requestConfig = RequestConfig(
+  method: HttpMethod.get,
+  path: '/products/16',
+);
+
 ```
 
 ### Step 4: Call an endpoint
 
 ```dart
-// GET example
-final response = await connector.call("getPosts");
-
-if (response.statusCode == 200) {
-  print(response.body);
-} else {
-  print('Error: ${response.statusCode}');
-}
-
-// POST example
-final postResponse = await connector.call("createPost", variables: {
-  "title": "New Post",
-  "body": "This is the body of the new post.",
-  "userId": 1
-});
+Map<String, dynamic> fetchedData = await connector.sendRequest(requestConfig);
 ```
 
-You can find more advanced examples in the [`/example`](./example) directory.
+You can find more advanced examples in the [`lib/example`](../example) directory.
 
 ---
 
