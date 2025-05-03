@@ -1,12 +1,9 @@
 # 📦 no\_code\_api\_connector
 
-# no_code_api_connector
-
 ![Pub Version](https://img.shields.io/pub/v/NoCodeApiConnector)
 ![License](https://img.shields.io/github/license/dhrruvchotai/NoCodeApiConnector)
 ![Issues](https://img.shields.io/github/issues/dhrruvchotai/NoCodeApiConnector)
 ![Stars](https://img.shields.io/github/stars/dhrruvchotai/NoCodeApiConnector?style=social)
-
 
 `no_code_api_connector` is a Flutter package that allows you to connect to REST APIs using a simple JSON-based configuration — no backend or manual HTTP logic needed. Perfect for developers who want to set up dynamic API integrations quickly and efficiently with minimal boilerplate.
 
@@ -141,12 +138,9 @@ Contributions, suggestions, and feedback are always welcome!
 
 ## 📬 Contact
 
-For issues, reach out via the [GitHub Issues](https://github.com/your-username/no_code_api_connector/issues) page.
+For issues, reach out via the [GitHub Issues](https://github.com/your-username/NoCodeApiConnector/issues) page.
 
 ---
 
-Made with ❤️ by \[Your Name]
+Made with ❤️ by \[Dhruv Chotai]
 
----
-
-Would you like me to generate shields.io badges or sample demo screenshots for the README?
