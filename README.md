@@ -1,19 +1,15 @@
-
-
-````markdown 📦 no_code_api_connector
+# 📦 no\_code\_api\_connector
 
 `no_code_api_connector` is a Flutter package that allows you to connect to REST APIs using a simple JSON-based configuration — no backend or manual HTTP logic needed. Perfect for developers who want to set up dynamic API integrations quickly and efficiently with minimal boilerplate.
 
----
-
 ## 🚀 Features
 
-- 🌐 Easily connect to any REST API with a JSON config
-- 🧩 Supports `GET`, `POST`, `PUT`, `DELETE`, and more
-- 🔐 Built-in support for Bearer and Basic authentication
-- 🔄 Handles headers, query params, and body formats
-- 🧪 Developer-friendly and easy to debug
-- 🧰 Extensible and ready for production
+* 🌐 Easily connect to any REST API with a JSON config
+* 🧩 Supports `GET`, `POST`, `PUT`, `DELETE`, and more
+* 🔐 Built-in support for Bearer and Basic authentication
+* 🔄 Handles headers, query params, and body formats
+* 🧪 Developer-friendly and easy to debug
+* 🧰 Extensible and ready for production
 
 ---
 
@@ -21,9 +17,9 @@
 
 ### Prerequisites
 
-- ✅ Flutter SDK ≥ 3.0.0
-- ✅ Dart ≥ 2.18.0
-- ✅ Internet permission (required for Android/iOS)
+* ✅ Flutter SDK ≥ 3.0.0
+* ✅ Dart ≥ 2.18.0
+* ✅ Internet permission (required for Android/iOS)
 
 ### Installation
 
@@ -32,7 +28,7 @@ Add the following to your `pubspec.yaml`:
 ```yaml
 dependencies:
   no_code_api_connector: ^0.0.1
-````
+```
 
 Then run:
 
@@ -143,9 +139,6 @@ For issues, reach out via the [GitHub Issues](https://github.com/your-username/n
 
 Made with ❤️ by \[Your Name]
 
-```
-
 ---
 
-Let me know if you’d like me to generate a badge row or insert demo GIFs/images for this README!
-```
+Would you like me to generate shields.io badges or sample demo screenshots for the README?
