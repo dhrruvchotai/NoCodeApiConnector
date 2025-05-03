@@ -1,9 +1,7 @@
 # 📦 no\_code\_api\_connector
 
 ![Pub Version](https://img.shields.io/pub/v/no_code_api_connector)
-![License](https://img.shields.io/github/license/dhrruvchotai/NoCodeApiConnector)
 ![Issues](https://img.shields.io/github/issues/dhrruvchotai/NoCodeApiConnector)
-![Stars](https://img.shields.io/github/stars/dhrruvchotai/NoCodeApiConnector?style=social)
 
 `no_code_api_connector` is a Flutter package that allows you to connect to REST APIs using a simple JSON-based configuration — no backend or manual HTTP logic needed. Perfect for developers who want to set up dynamic API integrations quickly and efficiently with minimal boilerplate.
 
