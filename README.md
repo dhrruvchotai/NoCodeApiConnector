@@ -52,7 +52,7 @@ import 'package:no_code_api_connector/no_code_api_connector.dart';
 ### Step 2: Create instance of ApiConfig and set parameters tha you want to include in all api requests
 
 ```dart
-    final apiConfig = ApiConfig(baseUrl: 'https://api.escuelajs.co/api/v1');
+final apiConfig = ApiConfig(baseUrl: 'https://api.escuelajs.co/api/v1');
 ```
 
 ### Step 3: Create Instance of ApiConnector by passing instance of ApiConfig
