@@ -104,4 +104,8 @@ class ApiConnector{
       throw HttpException("Request failed with status code : ${response.statusCode}",uri: response.request?.url);
     }
   }
+  //method to dispose the used resources
+  void dispose() {
+    client.close();
+  }
 }

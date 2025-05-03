@@ -18,7 +18,7 @@ class ApiConfig{
   ApiConfig({
     required this.baseUrl,
     this.defaultHeaders,
-    required this.authProvider,
+    this.authProvider,
     //by default wait for any request till 60 seconds
     this.timeout = const Duration(seconds: 60),
   });
