@@ -1,39 +1,154 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+Here’s a complete `README.md` for your Flutter package **`no_code_api_connector`**, written in a single file:
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+---
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+````markdown
+# 📦 no_code_api_connector
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+`no_code_api_connector` is a Flutter package that allows you to connect to REST APIs using a simple JSON-based configuration — no backend or manual HTTP logic needed. Perfect for developers who want to set up dynamic API integrations quickly and efficiently with minimal boilerplate.
 
-## Features
+---
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## 🚀 Features
 
-## Getting started
+- 🌐 Easily connect to any REST API with a JSON config
+- 🧩 Supports `GET`, `POST`, `PUT`, `DELETE`, and more
+- 🔐 Built-in support for Bearer and Basic authentication
+- 🔄 Handles headers, query params, and body formats
+- 🧪 Developer-friendly and easy to debug
+- 🧰 Extensible and ready for production
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+---
 
-## Usage
+## 🛠 Getting Started
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### Prerequisites
 
-```dart
-const like = 'sample';
+- ✅ Flutter SDK ≥ 3.0.0
+- ✅ Dart ≥ 2.18.0
+- ✅ Internet permission (required for Android/iOS)
+
+### Installation
+
+Add the following to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  no_code_api_connector: ^0.0.1
+````
+
+Then run:
+
+```bash
+flutter pub get
 ```
 
-## Additional information
+---
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## 📈 Usage
+
+### Step 1: Import the package
+
+```dart
+import 'package:no_code_api_connector/no_code_api_connector.dart';
+```
+
+### Step 2: Create a JSON config
+
+```dart
+final config = {
+  "baseUrl": "https://jsonplaceholder.typicode.com",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "endpoints": {
+    "getPosts": {
+      "path": "/posts",
+      "method": "GET"
+    },
+    "createPost": {
+      "path": "/posts",
+      "method": "POST",
+      "body": {
+        "title": "{{title}}",
+        "body": "{{body}}",
+        "userId": "{{userId}}"
+      }
+    }
+  }
+};
+```
+
+### Step 3: Initialize the connector
+
+```dart
+final connector = NoCodeApiConnector.fromJson(config);
+```
+
+### Step 4: Call an endpoint
+
+```dart
+// GET example
+final response = await connector.call("getPosts");
+
+if (response.statusCode == 200) {
+  print(response.body);
+} else {
+  print('Error: ${response.statusCode}');
+}
+
+// POST example
+final postResponse = await connector.call("createPost", variables: {
+  "title": "New Post",
+  "body": "This is the body of the new post.",
+  "userId": 1
+});
+```
+
+You can find more advanced examples in the [`/example`](./example) directory.
+
+---
+
+## 📁 Folder Structure
+
+```text
+lib/
+├── no_code_api_connector.dart
+example/
+├── main.dart
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🙌 Contributions
+
+Contributions, suggestions, and feedback are always welcome!
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+
+---
+
+## 📬 Contact
+
+For issues, reach out via the [GitHub Issues](https://github.com/your-username/no_code_api_connector/issues) page.
+
+---
+
+Made with ❤️ by \[Your Name]
+
+```
+
+---
+
+Let me know if you’d like me to generate a badge row or insert demo GIFs/images for this README!
+```
