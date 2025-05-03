@@ -1,22 +1,20 @@
-Here’s a complete `README.md` for your Flutter package **`no_code_api_connector`**, written in a single file:
+# 📦 no\_code\_api\_connector
 
----
-
-````markdown
-# 📦 no_code_api_connector
+![Pub Version](https://img.shields.io/pub/v/NoCodeApiConnector)
+![License](https://img.shields.io/github/license/dhrruvchotai/NoCodeApiConnector)
+![Issues](https://img.shields.io/github/issues/dhrruvchotai/NoCodeApiConnector)
+![Stars](https://img.shields.io/github/stars/dhrruvchotai/NoCodeApiConnector?style=social)
 
 `no_code_api_connector` is a Flutter package that allows you to connect to REST APIs using a simple JSON-based configuration — no backend or manual HTTP logic needed. Perfect for developers who want to set up dynamic API integrations quickly and efficiently with minimal boilerplate.
 
----
-
 ## 🚀 Features
 
-- 🌐 Easily connect to any REST API with a JSON config
-- 🧩 Supports `GET`, `POST`, `PUT`, `DELETE`, and more
-- 🔐 Built-in support for Bearer and Basic authentication
-- 🔄 Handles headers, query params, and body formats
-- 🧪 Developer-friendly and easy to debug
-- 🧰 Extensible and ready for production
+* 🌐 Easily connect to any REST API with a JSON config
+* 🧩 Supports `GET`, `POST`, `PUT`, `DELETE`, and more
+* 🔐 Built-in support for Bearer and Basic authentication
+* 🔄 Handles headers, query params, and body formats
+* 🧪 Developer-friendly and easy to debug
+* 🧰 Extensible and ready for production
 
 ---
 
@@ -24,9 +22,9 @@ Here’s a complete `README.md` for your Flutter package **`no_code_api_connecto
 
 ### Prerequisites
 
-- ✅ Flutter SDK ≥ 3.0.0
-- ✅ Dart ≥ 2.18.0
-- ✅ Internet permission (required for Android/iOS)
+* ✅ Flutter SDK ≥ 3.0.0
+* ✅ Dart ≥ 2.18.0
+* ✅ Internet permission (required for Android/iOS)
 
 ### Installation
 
@@ -35,7 +33,7 @@ Add the following to your `pubspec.yaml`:
 ```yaml
 dependencies:
   no_code_api_connector: ^0.0.1
-````
+```
 
 Then run:
 
@@ -114,6 +112,12 @@ You can find more advanced examples in the [`/example`](./example) directory.
 ```text
 lib/
 ├── no_code_api_connector.dart
+src/
+├── api_connector.dart
+├── api_config.dart
+├── auth_provider.dart
+├── request_config.dart
+├── response_handler.dart
 example/
 ├── main.dart
 ```
@@ -140,15 +144,9 @@ Contributions, suggestions, and feedback are always welcome!
 
 ## 📬 Contact
 
-For issues, reach out via the [GitHub Issues](https://github.com/your-username/no_code_api_connector/issues) page.
+For issues, reach out via the [GitHub Issues](https://github.com/your-username/NoCodeApiConnector/issues) page.
 
 ---
 
-Made with ❤️ by \[Your Name]
+Made with ❤️ by \[Dhruv Chotai]
 
-```
-
----
-
-Let me know if you’d like me to generate a badge row or insert demo GIFs/images for this README!
-```
