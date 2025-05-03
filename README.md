@@ -1,6 +1,6 @@
 # 📦 no\_code\_api\_connector
 
-![Pub Version](https://img.shields.io/pub/v/NoCodeApiConnector)
+![Pub Version](https://img.shields.io/pub.dev/packages/no_code_api_connector/versions)
 ![License](https://img.shields.io/github/license/dhrruvchotai/NoCodeApiConnector)
 ![Issues](https://img.shields.io/github/issues/dhrruvchotai/NoCodeApiConnector)
 ![Stars](https://img.shields.io/github/stars/dhrruvchotai/NoCodeApiConnector?style=social)
