@@ -1,3 +1,9 @@
+## 0.0.3
+
+- Updated `README.md` with corrected installation instructions.
+- Improved documentation for better clarity and usage guidance.
+- No breaking changes to code or API behavior.
+
 ## 0.0.2
 
 - Fixed bug causing `400 Bad Request` when no query parameters were provided.
