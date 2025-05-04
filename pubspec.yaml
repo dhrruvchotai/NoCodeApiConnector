@@ -1,5 +1,5 @@
 name: no_code_api_connector
-description: "A Flutter package to make api requests with out writing the code."
+description: "This package is designed to make API integration effortless — perfect for low-code/no-code workflows."
 version: 0.0.2
 homepage: "https://github.com/dhrruvchotai/NoCodeApiConnector"
 repository: "https://github.com/dhrruvchotai/NoCodeApiConnector"
