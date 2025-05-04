@@ -30,7 +30,7 @@ Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  no_code_api_connector: ^0.0.1
+  no_code_api_connector:
 ```
 
 Then run:
