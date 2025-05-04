@@ -1,6 +1,6 @@
 name: no_code_api_connector
 description: "This package is designed to make API integration effortless — perfect for low-code/no-code workflows."
-version: 0.0.2
+version: 0.0.3
 homepage: "https://github.com/dhrruvchotai/NoCodeApiConnector"
 repository: "https://github.com/dhrruvchotai/NoCodeApiConnector"
 
